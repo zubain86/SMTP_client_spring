@@ -17,6 +17,7 @@ public class EmailController {
     @Autowired
     EmailService emailService;
     @PostMapping("/send")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<String> sendEmail(@RequestPart("test_json") EmailRequest emailReq, @RequestPart("test_file") MultipartFile[] files) throws IOException
     {
        Response response =  emailService.emailSendService(emailReq,files);
